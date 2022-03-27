@@ -1,6 +1,6 @@
 import { getInStore, removeInStore, setInStore, TOKEN, ROLES_KEY } from './store'
 
-export const setUserLocalStorage = (data) => {
+export const setUserLocalStorage = (data: any) => {
   setInStore(ROLES_KEY, data.rights)
   setInStore(TOKEN, data.token)
 }
@@ -26,6 +26,6 @@ export const logout = () => {
   removeInStore(TOKEN)
 }
 
-export const hasRoles = (role) => {
+export const hasRoles = (role: string) => {
   return getRoles().include(role)
 }
