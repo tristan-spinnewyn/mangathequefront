@@ -1,0 +1,1 @@
+export const url_api = 'https://mangatheque-prod.herokuapp.com/'
