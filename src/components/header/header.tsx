@@ -16,9 +16,9 @@ function Header(){
         menuBot.lstMenuLi.push({url:'/logout',name:'Se déconnecter'})
         menuBot.lstMenuLi.push({url:'/collection', name: 'Ma collection'})
         const roles = getRoles();
-        if(roles.include('admin')){
-            menuBot.lstMenuLi.push({url:'/admin', name:"Panneau d'administration"},
-                {url:'/admin/collection',name:"Gestion des collections"},
+        if(roles.includes('ROLE_ADMIN')){
+            menuTop.lstMenuLi.push({url:'/admin', name:"Administration"},
+                {url:'/admin/collection',name:"Gestion des livres"},
                 {url:'/admin/author',name:"Gestion des Auteurs"},
                 {url:'/admin/edition',name:"Maison d'éditions"})
         }

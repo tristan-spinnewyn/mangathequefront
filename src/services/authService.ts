@@ -1,8 +1,13 @@
 import { getInStore, removeInStore, setInStore, TOKEN, ROLES_KEY } from './store'
 
 export const setUserLocalStorage = (data: any) => {
-  setInStore(ROLES_KEY, data.rights)
-  setInStore(TOKEN, data.token)
+  const roles = []
+  roles.push('ROLE_USER')
+  if(data.role === true){
+    roles.push('ROLE_ADMIN')
+  }
+  setInStore(ROLES_KEY, roles.toString())
+  setInStore(TOKEN, data.access_token)
 }
 
 export const isConnected = () => {
