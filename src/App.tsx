@@ -4,6 +4,7 @@ import {isConnected} from "./services/authService";
 import Header from "./components/header/header";
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
 import Home from "./pages/home";
+import Login from "./pages/login";
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -34,7 +35,7 @@ function App() {
                         <Route path="/admin/collection"/>
                         <Route path="/admin/author"/>
                         <Route path="/admin/edition"/>
-                        <Route path="/login"/>
+                        <Route path="/login" element={<Login />}/>
                     </Routes>
                 </Router>
             </div>
