@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, { useState} from "react";
 import {formHandleChange} from "../services/formServices";
 import Input from "../components/form/input";
 import LogButtonTop from "../components/user/logButtonTop";
@@ -26,7 +26,7 @@ function Register(){
         if(login.pwd === passwordConf.passwordConf) {
             try {
                 await register({email: login.email, password: login.pwd, pseudonyme: login.pseudonyme})
-                document.location.href = '/login'
+                document.location.href = '/#/login'
             } catch (e) {
                 setError("L'email existe deja.")
             }

@@ -24,7 +24,7 @@ function Login(){
             const data = await authenticate({email: login.email,password:login.pwd})
             setUserLocalStorage(data)
             context.setConnected(true)
-            document.location.href = '/'
+            document.location.href = '/#'
         }catch(e){
             context.setConnected(false)
             setError("Mot de passe ou email incorrect")
