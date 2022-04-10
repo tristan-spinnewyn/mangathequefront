@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import {isConnected} from "./services/authService";
 import Header from "./components/header/header";
-import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
+import {Routes, Route, HashRouter as Router} from "react-router-dom";
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Register from "./pages/register";
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -36,6 +37,7 @@ function App() {
                         <Route path="/admin/author"/>
                         <Route path="/admin/edition"/>
                         <Route path="/login" element={<Login />}/>
+                        <Route path="/register" element={<Register/>}/>
                     </Routes>
                 </Router>
             </div>
