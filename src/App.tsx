@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import './App.css';
-import {isConnected} from "./services/authService";
+import {isConnected, logout} from "./services/authService";
 import Header from "./components/header/header";
 import {Routes, Route, HashRouter as Router} from "react-router-dom";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Logout from "./pages/logout";
+import Account from "./pages/account";
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -29,8 +31,8 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/planning"/>
                         <Route path="/search"/>
-                        <Route path="/account"/>
-                        <Route path="/logout"/>
+                        <Route path="/account" element={<Account/>}/>
+                        <Route path="/logout" element={<Logout />}/>
                         <Route path="/collection"/>
                         <Route path="/admin"/>
                         <Route path="/admin/collection"/>
