@@ -17,3 +17,8 @@ export interface updatePasswordInterface{
     email: string,
     pseudonyme: string,
 }
+
+export interface auteur{
+    id?:number|string,
+    nameAuteur: string,
+}

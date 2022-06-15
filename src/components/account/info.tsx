@@ -11,8 +11,7 @@ function Info(props: UserInterface) {
     let inputClass = "rounded-xl h-[40px] w-[300px]"
     let divClass = "text-[#000000] w-[300px]"
 
-    // @ts-ignore
-    useEffect(async () => {
+    useEffect(() => {
         setUser({email: props.email, pseudonyme: props.pseudonyme ? props.pseudonyme: '',pwd:''})
     },[props])
 
@@ -37,7 +36,7 @@ function Info(props: UserInterface) {
     }
     return (
         <div className="flex flex-col justify-center h-full w-full items-center">
-            <h1 className="text-xl">Mon compte</h1>
+            <h2 className="text-xl">Mon compte</h2>
             <form onSubmit={handleSubmit}>
                 <Input divClass={divClass} inputClass={inputClass} type="text" label="Email" placeholder="Email" value={user.email} change={handleChange} name="email"/>
                 <Input divClass={divClass} inputClass={inputClass} type="text" label="Pseudonyme" placeholder="Pseudonyme" value={user.pseudonyme} change={handleChange} name="pseudonyme" />

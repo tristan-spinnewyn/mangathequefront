@@ -5,11 +5,15 @@ import {getConnectedUser} from "../api/userApi";
 
 function Account() {
     const [user, setUser] = useState({email: '', pseudonyme:'', pwd:''})
-    // @ts-ignore
-    useEffect(async () => {
+
+    useEffect(() => {
         try {
-            const user = await getConnectedUser();
-            setUser({email: user.email, pseudonyme: user.pseudonyme, pwd: ''})
+            const userInfo = async  ()=> {
+                const user = await getConnectedUser()
+                setUser({email: user.email, pseudonyme: user.pseudonyme, pwd: ''})
+            };
+            userInfo()
+
         } catch (e) {
             console.log('error')
         }

@@ -11,8 +11,7 @@ function Password(props: UserInterface) {
     let inputClass = "rounded-xl h-[40px] w-[300px]"
     let divClass = "text-[#000000] w-[300px]"
 
-    // @ts-ignore
-    useEffect(async () => {
+    useEffect(() => {
         setPassword({password: '', confirmPassword: '',email: props.email, pseudonyme: props.pseudonyme ? props.pseudonyme: '',pwd:''})
     },[props])
 
@@ -25,7 +24,6 @@ function Password(props: UserInterface) {
         setEvent("")
         if(password.password === '' ||password.pwd === '' || password.confirmPassword === ''){
             setError("Veuillez remplir tout les champs du formulaire !")
-            return
         }
         if(password.password !== password.confirmPassword){
             setError("Les deux mots de passe doivent être identique !")
@@ -42,7 +40,7 @@ function Password(props: UserInterface) {
 
     return (
         <div className="flex flex-col justify-center h-full w-full items-center">
-            <h1 className="text-xl">Changement de mot de passe</h1>
+            <h2 className="text-xl">Changement de mot de passe</h2>
             <form onSubmit={handleSubmit}>
                 <Input divClass={divClass} inputClass={inputClass} type="password" label="Nouveau mot de passe" placeholder="Nouveau mot de passe" value={password.password} change={handleChange} name="password"/>
                 <Input divClass={divClass} inputClass={inputClass} type="password" label="Confirmer le nouveau mot de passe" placeholder="Confirmer le nouveau mot de passe" value={password.confirmPassword} change={handleChange} name="confirmPassword"/>

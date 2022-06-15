@@ -8,6 +8,8 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Logout from "./pages/logout";
 import Account from "./pages/account";
+import Author from "./pages/author/author";
+import AddOrUpdateAuthor from "./pages/author/addOrUpdateAuthor";
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -34,9 +36,10 @@ function App() {
                         <Route path="/account" element={<Account/>}/>
                         <Route path="/logout" element={<Logout />}/>
                         <Route path="/collection"/>
-                        <Route path="/admin"/>
                         <Route path="/admin/collection"/>
-                        <Route path="/admin/author"/>
+                        <Route path="/admin/auteur/:id" element={<AddOrUpdateAuthor />}/>
+                        <Route path="/admin/auteur/add" element={<AddOrUpdateAuthor />}/>
+                        <Route path="/admin/auteur" element={<Author/>}/>
                         <Route path="/admin/edition"/>
                         <Route path="/login" element={<Login />}/>
                         <Route path="/register" element={<Register/>}/>
