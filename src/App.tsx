@@ -12,6 +12,8 @@ import Author from "./pages/author/author";
 import AddOrUpdateAuthor from "./pages/author/addOrUpdateAuthor";
 import Editeur from "./pages/editeur/editeur";
 import AddOrUpdateEditeur from "./pages/editeur/addOrUpdateEditeur";
+import Serie from "./pages/serie/serie";
+import AddOrUpdateSerie from "./pages/serie/addOrUpdateSerie";
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -45,6 +47,9 @@ function App() {
                         <Route path="/admin/editeur/:id" element={<AddOrUpdateEditeur />}/>
                         <Route path="/admin/editeur/add" element={<AddOrUpdateEditeur />} />
                         <Route path="/admin/editeur" element={<Editeur/>}/>
+                        <Route path="/admin/serie/:id" element={<AddOrUpdateSerie/>}/>
+                        <Route path="/admin/serie/add"  element={<AddOrUpdateSerie/>}/>
+                        <Route path="/admin/serie" element={<Serie/>}/>
                         <Route path="/admin/edition"/>
                         <Route path="/login" element={<Login />}/>
                         <Route path="/register" element={<Register/>}/>

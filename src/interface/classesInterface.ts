@@ -27,3 +27,9 @@ export interface editeur{
     id?:number|string,
     nameEditeur: string,
 }
+
+export interface serie{
+    id?:number|string,
+    nameSeries: string,
+    auteurId: number|string,
+}

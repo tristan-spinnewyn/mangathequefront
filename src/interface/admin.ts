@@ -21,3 +21,9 @@ export interface AdminElemTable{
     link: string,
     name: string,
 }
+
+export interface select{
+    value: any,
+    setValue: any,
+    loading: boolean,
+}

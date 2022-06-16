@@ -3,6 +3,7 @@ import {AdminContentTable} from "../../interface/admin";
 import {getAuthor} from "../../api/authorApi";
 import ElemTable from "./elemTable";
 import {getEditor} from "../../api/editorApi";
+import {getSerie} from "../../api/serieApi";
 
 function ContentTable(props: AdminContentTable) {
     const [lstElem,setLstElem] = useState<any[]>([])
@@ -16,7 +17,10 @@ function ContentTable(props: AdminContentTable) {
                 }
             }
             if(props.isSerie){
-                //todo isSerie
+                const serie = await getSerie(props.search.name)
+                for(let i = 0; i < serie.length; i++){
+                    setLstElem(prevState => [...prevState, {link:`/admin/serie/${serie[i].id}`,name:serie[i].nameSeries}])
+                }
             }
             if(props.isEditor){
                 const editeur = await getEditor(props.search.name)
