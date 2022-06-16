@@ -22,3 +22,8 @@ export interface auteur{
     id?:number|string,
     nameAuteur: string,
 }
+
+export interface editeur{
+    id?:number|string,
+    nameEditeur: string,
+}

@@ -3,6 +3,7 @@ import {formHandleChange} from "../services/formServices";
 import Input from "../components/form/input";
 import LogButtonTop from "../components/user/logButtonTop";
 import { register} from "../api/userApi";
+import {useNavigate} from "react-router-dom";
 
 
 function Register(){
@@ -11,6 +12,7 @@ function Register(){
     const [error,setError] = useState("")
     let divClass = "text-[#000000] w-[300px]"
     let inputClass = "rounded-xl h-[40px] w-[300px]"
+    let navigate = useNavigate()
 
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +28,7 @@ function Register(){
         if(login.pwd === passwordConf.passwordConf) {
             try {
                 await register({email: login.email, password: login.pwd, pseudonyme: login.pseudonyme})
-                document.location.href = '/#/login'
+                navigate("/login")
             } catch (e) {
                 setError("L'email existe deja.")
             }

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Input from "../form/input";
 import {formHandleChange} from "../../services/formServices";
-import {getConnectedUser, updateConnectedUser} from "../../api/userApi";
+import {updateConnectedUser} from "../../api/userApi";
 import {UserInterface} from "../../interface/classesInterface";
 
 function Info(props: UserInterface) {

@@ -5,7 +5,7 @@ import {auteur} from "../interface/classesInterface";
 export async function getAuthor(name: string){
     let url = `${url_api}/auteurs`
     let res;
-    if(name == ""){
+    if(name === ""){
         res = await axios.get(url,HEADER)
     } else {
         url += `?name=${name}`

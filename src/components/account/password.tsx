@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Input from "../form/input";
 import {formHandleChange} from "../../services/formServices";
-import {updateConnectedUser, updatePasswordConnectedUser} from "../../api/userApi";
+import { updatePasswordConnectedUser} from "../../api/userApi";
 import {UserInterface} from "../../interface/classesInterface";
 
 function Password(props: UserInterface) {

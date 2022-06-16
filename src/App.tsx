@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {isConnected, logout} from "./services/authService";
+import {isConnected} from "./services/authService";
 import Header from "./components/header/header";
 import {Routes, Route, HashRouter as Router} from "react-router-dom";
 import Home from "./pages/home";
@@ -10,6 +10,8 @@ import Logout from "./pages/logout";
 import Account from "./pages/account";
 import Author from "./pages/author/author";
 import AddOrUpdateAuthor from "./pages/author/addOrUpdateAuthor";
+import Editeur from "./pages/editeur/editeur";
+import AddOrUpdateEditeur from "./pages/editeur/addOrUpdateEditeur";
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -40,6 +42,9 @@ function App() {
                         <Route path="/admin/auteur/:id" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur/add" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur" element={<Author/>}/>
+                        <Route path="/admin/editeur/:id" element={<AddOrUpdateEditeur />}/>
+                        <Route path="/admin/editeur/add" element={<AddOrUpdateEditeur />} />
+                        <Route path="/admin/editeur" element={<Editeur/>}/>
                         <Route path="/admin/edition"/>
                         <Route path="/login" element={<Login />}/>
                         <Route path="/register" element={<Register/>}/>
