@@ -28,11 +28,14 @@ function ContentTable(props: AdminContentTable) {
                     setLstElem(prevState => [...prevState, {link:`/admin/editeur/${editeur[i].id}`,name:editeur[i].nameEditeur}])
                 }
             }
+            if(props.isNotApi && props.table !== undefined){
+                setLstElem(props.table);
+            }
         }
         getContent()
     },[props.search])
     return (
-        <table className="w-[100%] pl-3">
+        <table className="w-[100%] pl-3 text-white">
             <thead>
             <tr></tr>
             <tr></tr>

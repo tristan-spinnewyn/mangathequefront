@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Header from "../../components/admin/header";
 import SearchAndAdd from "../../components/admin/searchAndAdd";
 import ContentTable from "../../components/admin/contentTable";
+import AddEdition from "../../components/admin/addEdition";
 
 function Serie() {
     const [search,setSearch] = useState({name:''})

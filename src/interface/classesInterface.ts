@@ -33,3 +33,11 @@ export interface serie{
     nameSeries: string,
     auteurId: number|string,
 }
+
+export interface edition{
+    id?:number|string,
+    nameEdition: string,
+    serieId:number|string,
+    editeurId: number|string,
+    statut: number,
+}

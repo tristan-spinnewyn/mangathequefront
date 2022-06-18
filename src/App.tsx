@@ -40,7 +40,6 @@ function App() {
                         <Route path="/account" element={<Account/>}/>
                         <Route path="/logout" element={<Logout />}/>
                         <Route path="/collection"/>
-                        <Route path="/admin/collection"/>
                         <Route path="/admin/auteur/:id" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur/add" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur" element={<Author/>}/>
@@ -50,7 +49,7 @@ function App() {
                         <Route path="/admin/serie/:id" element={<AddOrUpdateSerie/>}/>
                         <Route path="/admin/serie/add"  element={<AddOrUpdateSerie/>}/>
                         <Route path="/admin/serie" element={<Serie/>}/>
-                        <Route path="/admin/edition"/>
+                        <Route path="/admin/edition/:id"/>
                         <Route path="/login" element={<Login />}/>
                         <Route path="/register" element={<Register/>}/>
                     </Routes>
