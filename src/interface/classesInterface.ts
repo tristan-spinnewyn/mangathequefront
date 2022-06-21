@@ -41,3 +41,13 @@ export interface edition{
     editeurId: number|string,
     statut: number,
 }
+
+export interface tome{
+    numero: string|number,
+    desc:string,
+    nbpage:string|number,
+    dateSortie:Date,
+    imageCouverture: string,
+    isbn:string,
+    editionId: string|number,
+}

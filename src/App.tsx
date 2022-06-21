@@ -14,6 +14,9 @@ import Editeur from "./pages/editeur/editeur";
 import AddOrUpdateEditeur from "./pages/editeur/addOrUpdateEditeur";
 import Serie from "./pages/serie/serie";
 import AddOrUpdateSerie from "./pages/serie/addOrUpdateSerie";
+import Edition from "./pages/edition/edition";
+import AddTome from "./pages/tome/addTome";
+import UpdateTome from "./pages/tome/updateTome";
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -37,9 +40,9 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/planning"/>
                         <Route path="/search"/>
+                        <Route path="/collection"/>
                         <Route path="/account" element={<Account/>}/>
                         <Route path="/logout" element={<Logout />}/>
-                        <Route path="/collection"/>
                         <Route path="/admin/auteur/:id" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur/add" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur" element={<Author/>}/>
@@ -49,7 +52,9 @@ function App() {
                         <Route path="/admin/serie/:id" element={<AddOrUpdateSerie/>}/>
                         <Route path="/admin/serie/add"  element={<AddOrUpdateSerie/>}/>
                         <Route path="/admin/serie" element={<Serie/>}/>
-                        <Route path="/admin/edition/:id"/>
+                        <Route path="/admin/edition/:id" element={<Edition />}/>
+                        <Route path="/admin/tome/:id/add" element={<AddTome />}/>
+                        <Route path="/admin/tome/:id" element={<UpdateTome/>}/>
                         <Route path="/login" element={<Login />}/>
                         <Route path="/register" element={<Register/>}/>
                     </Routes>

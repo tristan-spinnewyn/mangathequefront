@@ -8,3 +8,17 @@ export async function addEditionApi(edition: edition){
 
     return res.status
 }
+
+export async function getEditionApi(id: number|string){
+    const url = `${url_api}/edition/${id}`
+    const res = await axios.get(url,HEADER)
+
+    return res.data
+}
+
+export async function updateEditionApi(edition: edition){
+    const url = `${url_api}/edition/${edition.id}`
+    const res = await axios.put(url,edition,HEADER)
+
+    return res.status
+}

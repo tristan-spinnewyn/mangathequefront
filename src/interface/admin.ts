@@ -42,3 +42,50 @@ export interface lstEdition{
     serieId: number|string
     editions: any[]
 }
+
+export interface updateEdition{
+    id:number|string,
+    nameEdition: string,
+    serieId: number|string,
+    editeurId:number|string,
+    statut: number|string,
+    loading: boolean,
+}
+
+export interface tomeComponent{
+    tomes: any[],
+    editionId: number|string,
+}
+
+export interface switchComponent{
+    isApi?: boolean,
+    isManuel?: boolean,
+    setIsApi: any,
+    setIsManuel: any,
+}
+
+export interface lstSearch{
+    data: any[],
+    setUidValue: any
+}
+
+export interface elemSearch{
+    name:string,
+    uid:string,
+    setUidValue: any
+}
+
+export interface descriptApi{
+    uid:string,
+    editionId: string|number,
+}
+export interface lstTome{
+    data:any[]
+}
+export interface addForTome{
+    editionId: number|string
+}
+
+export interface tomeElem{
+    data:any
+}
