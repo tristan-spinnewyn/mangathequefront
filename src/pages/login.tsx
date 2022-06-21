@@ -5,6 +5,7 @@ import Input from "../components/form/input";
 import LogButtonTop from "../components/user/logButtonTop";
 import {setUserLocalStorage} from "../services/authService";
 import {authenticate} from "../api/userApi";
+import {useNavigate} from "react-router-dom";
 
 
 function Login(){
@@ -13,6 +14,7 @@ function Login(){
     const context = useContext(AuthContext)
     let divClass = "text-[#000000] w-[300px]"
     let inputClass = "rounded-xl h-[40px] w-[300px]"
+    let navigate = useNavigate()
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         formHandleChange(event,login,setLogin)
@@ -24,7 +26,7 @@ function Login(){
             const data = await authenticate({email: login.email,password:login.pwd})
             setUserLocalStorage(data)
             context.setConnected(true)
-            document.location.href = '/'
+            return navigate("/")
         }catch(e){
             context.setConnected(false)
             setError("Mot de passe ou email incorrect")
