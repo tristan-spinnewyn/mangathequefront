@@ -1,39 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import {AdminContentTable} from "../../interface/admin";
+import {searchTable} from "../../interface/searchBar";
 import {getAuthor} from "../../api/authorApi";
-import ElemTable from "./elemTable";
-import {getEditor} from "../../api/editorApi";
 import {getSerie} from "../../api/serieApi";
+import {getEditor} from "../../api/editorApi";
+import ElemTable from "../admin/elemTable";
 
-function ContentTable(props: AdminContentTable) {
+function SearchTable(props:searchTable) {
     const [lstElem,setLstElem] = useState<any[]>([])
     useEffect(()=>{
         const getContent = async()=>{
             setLstElem([])
-            if(props.isAuthor){
+            if(props.whatIs.isAuthor){
                 const autors = await getAuthor(props.search.name)
                 for(let i = 0; i < autors.length; i++){
-                    setLstElem(prevState => [...prevState, {link:`/admin/auteur/${autors[i].id}`,name:autors[i].nameAuteur}])
+                    setLstElem(prevState => [...prevState, {link:`/auteur/${autors[i].id}`,name:autors[i].nameAuteur}])
                 }
             }
-            if(props.isSerie){
+            if(props.whatIs.isSerie){
                 const serie = await getSerie(props.search.name)
                 for(let i = 0; i < serie.length; i++){
-                    setLstElem(prevState => [...prevState, {link:`/admin/serie/${serie[i].id}`,name:serie[i].nameSeries}])
+                    setLstElem(prevState => [...prevState, {link:`/serie/${serie[i].id}`,name:serie[i].nameSeries}])
                 }
             }
-            if(props.isEditor){
+            if(props.whatIs.isEditor){
                 const editeur = await getEditor(props.search.name)
                 for(let i = 0; i < editeur.length; i++){
-                    setLstElem(prevState => [...prevState, {link:`/admin/editeur/${editeur[i].id}`,name:editeur[i].nameEditeur}])
+                    setLstElem(prevState => [...prevState, {link:`/editeur/${editeur[i].id}`,name:editeur[i].nameEditeur}])
                 }
-            }
-            if(props.isNotApi && props.table !== undefined){
-                setLstElem(props.table);
             }
         }
         getContent()
-    },[props.search])
+    },[props.search,props.whatIs])
     return (
         <table className="w-[100%] pl-3 text-white">
             <thead>
@@ -42,11 +39,11 @@ function ContentTable(props: AdminContentTable) {
             </thead>
             <tbody>
             {lstElem.map((data,index) =>{
-                return <ElemTable key={index} name={data.name} link={data.link} buttonLabel='Modifier'/>
+                return <ElemTable key={index} name={data.name} link={data.link} buttonLabel='Voir'/>
             })}
             </tbody>
         </table>
     );
 }
 
-export default ContentTable;
+export default SearchTable;

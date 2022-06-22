@@ -17,6 +17,20 @@ import AddOrUpdateSerie from "./pages/serie/addOrUpdateSerie";
 import Edition from "./pages/edition/edition";
 import AddTome from "./pages/tome/addTome";
 import UpdateTome from "./pages/tome/updateTome";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {
+    faArrowRight,
+    faArrowRightFromBracket, faBook,
+    faCalendarDays,
+    faGear,
+    faList,
+    faMagnifyingGlass,
+    fas,
+    faUser
+} from "@fortawesome/free-solid-svg-icons";
+import Search from "./pages/search";
+
+library.add(fas,faGear,faUser,faList,faCalendarDays,faMagnifyingGlass,faArrowRightFromBracket,faBook,faArrowRight)
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -39,7 +53,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/planning"/>
-                        <Route path="/search"/>
+                        <Route path="/search" element={<Search/>}/>
                         <Route path="/collection"/>
                         <Route path="/account" element={<Account/>}/>
                         <Route path="/logout" element={<Logout />}/>

@@ -36,3 +36,10 @@ export async function updateTomeApi(tome:tome,id:string|number){
 
     return res.status
 }
+
+export async function getLastTome(){
+    const url = `${url_api}/tome/new`
+    const res = await axios.get(url,HEADER)
+
+    return res.data
+}
