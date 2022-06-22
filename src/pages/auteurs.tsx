@@ -19,7 +19,6 @@ function Auteurs() {
         <div className="text-white w-[100%]">
             <h1 className="text-5xl">{auteur.nameAuteur}</h1>
             {auteur.series.map((value,index)=>{
-                console.log(value)
                 return <Link key={index} to={`/serie/${value.id}`}><div className="border-b border-gray-500 w-[100%] h-[40px]">{value.nameSeries}</div></Link>
             })}
         </div>

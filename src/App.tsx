@@ -30,6 +30,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Search from "./pages/search";
 import Auteurs from "./pages/auteurs";
+import Editeurs from "./pages/editeurs";
+import SerieUser from "./pages/serieUser";
 
 library.add(fas,faGear,faUser,faList,faCalendarDays,faMagnifyingGlass,faArrowRightFromBracket,faBook,faArrowRight)
 
@@ -59,6 +61,8 @@ function App() {
                         <Route path="/account" element={<Account/>}/>
                         <Route path="/logout" element={<Logout />}/>
                         <Route path="/auteur/:id" element={<Auteurs/>}/>
+                        <Route path="/editeur/:id" element={<Editeurs/>}/>
+                        <Route path="/serie/:id" element={<SerieUser/>}/>
                         <Route path="/admin/auteur/:id" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur/add" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur" element={<Author/>}/>

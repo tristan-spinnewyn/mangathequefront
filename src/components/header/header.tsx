@@ -26,7 +26,7 @@ function Header(){
     }
 
     return(
-        <div className="min-h-[100vh] lg:min-w-[230px] lg:max-w-[230px] w-[40px]">
+        <div className="min-h-[100vh] lg:min-w-[230px] lg:max-w-[230px] w-[50px]">
             <div className="bg-[#2b2d31] min-h-[100vh] lg:min-w-[230px] w-[40px] lg:max-w-[230px] flex flex-col justify-between py-[20px] fixed">
                 <MenuGroup key="top" lstMenuLi={menuTop.lstMenuLi}/>
                 <MenuGroup key="bot" lstMenuLi={menuBot.lstMenuLi}/>
