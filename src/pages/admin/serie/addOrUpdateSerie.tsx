@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {formHandleChange} from "../../services/formServices";
-import Input from "../../components/form/input";
-import {addSerie, getSerieById, updateSerie} from "../../api/serieApi";
-import LstAuteur from "../../components/form/lstAuteur";
-import EditionComponent from "../../components/admin/editionComponent";
+import {formHandleChange} from "../../../services/formServices";
+import Input from "../../../components/form/input";
+import {addSerie, getSerieById, updateSerie} from "../../../api/serieApi";
+import LstAuteur from "../../../components/form/lstAuteur";
+import EditionComponent from "../../../components/admin/editionComponent";
 
 function AddOrUpdateSerie() {
     const [serie, setSerie] = useState({id: null, nameSerie: '', auteurId: ''})

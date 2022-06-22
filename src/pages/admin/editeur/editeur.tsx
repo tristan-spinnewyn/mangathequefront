@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
-import Header from "../../components/admin/header";
-import SearchAndAdd from "../../components/admin/searchAndAdd";
-import ContentTable from "../../components/admin/contentTable";
+import Header from "../../../components/admin/header";
+import SearchAndAdd from "../../../components/admin/searchAndAdd";
+import ContentTable from "../../../components/admin/contentTable";
 
 function Editeur() {
     const [search,setSearch] = useState({name:''})

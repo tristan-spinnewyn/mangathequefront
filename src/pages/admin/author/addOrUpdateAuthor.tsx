@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {addAuthor, getAuthorById, updateAuthor} from "../../api/authorApi";
+import {addAuthor, getAuthorById, updateAuthor} from "../../../api/authorApi";
 import {useNavigate, useParams} from "react-router-dom";
-import Input from "../../components/form/input";
-import {formHandleChange} from "../../services/formServices";
+import Input from "../../../components/form/input";
+import {formHandleChange} from "../../../services/formServices";
 
 function AddOrUpdateAuthor() {
     const [author, setAuthor] = useState({id: null, nameAuteur: ''})

@@ -8,15 +8,15 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Logout from "./pages/logout";
 import Account from "./pages/account";
-import Author from "./pages/author/author";
-import AddOrUpdateAuthor from "./pages/author/addOrUpdateAuthor";
-import Editeur from "./pages/editeur/editeur";
-import AddOrUpdateEditeur from "./pages/editeur/addOrUpdateEditeur";
-import Serie from "./pages/serie/serie";
-import AddOrUpdateSerie from "./pages/serie/addOrUpdateSerie";
-import Edition from "./pages/edition/edition";
-import AddTome from "./pages/tome/addTome";
-import UpdateTome from "./pages/tome/updateTome";
+import Author from "./pages/admin/author/author";
+import AddOrUpdateAuthor from "./pages/admin/author/addOrUpdateAuthor";
+import Editeur from "./pages/admin/editeur/editeur";
+import AddOrUpdateEditeur from "./pages/admin/editeur/addOrUpdateEditeur";
+import Serie from "./pages/admin/serie/serie";
+import AddOrUpdateSerie from "./pages/admin/serie/addOrUpdateSerie";
+import Edition from "./pages/admin/edition/edition";
+import AddTome from "./pages/admin/tome/addTome";
+import UpdateTome from "./pages/admin/tome/updateTome";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {
     faArrowRight,
@@ -29,6 +29,7 @@ import {
     faUser
 } from "@fortawesome/free-solid-svg-icons";
 import Search from "./pages/search";
+import Auteurs from "./pages/auteurs";
 
 library.add(fas,faGear,faUser,faList,faCalendarDays,faMagnifyingGlass,faArrowRightFromBracket,faBook,faArrowRight)
 
@@ -57,6 +58,7 @@ function App() {
                         <Route path="/collection"/>
                         <Route path="/account" element={<Account/>}/>
                         <Route path="/logout" element={<Logout />}/>
+                        <Route path="/auteur/:id" element={<Auteurs/>}/>
                         <Route path="/admin/auteur/:id" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur/add" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur" element={<Author/>}/>

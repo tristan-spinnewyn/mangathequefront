@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import SwitchComponent from "../../components/admin/tome/switchComponent";
-import AddApi from "../../components/admin/tome/addApi";
-import {getEditionApi} from "../../api/editionApi";
-import DecriptTomeApi from "../../components/admin/tome/decriptTomeApi";
+import SwitchComponent from "../../../components/admin/tome/switchComponent";
+import AddApi from "../../../components/admin/tome/addApi";
+import {getEditionApi} from "../../../api/editionApi";
+import DecriptTomeApi from "../../../components/admin/tome/decriptTomeApi";
 
 function AddTome() {
     let {id} = useParams()

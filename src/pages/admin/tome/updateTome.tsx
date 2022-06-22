@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {addATome, getTomeApi, updateTomeApi} from "../../api/tomeApi";
-import Input from "../../components/form/input";
+import {addATome, getTomeApi, updateTomeApi} from "../../../api/tomeApi";
+import Input from "../../../components/form/input";
 import DatePicker from "react-datepicker";
-import {formHandleChange} from "../../services/formServices";
+import {formHandleChange} from "../../../services/formServices";
 
 function UpdateTome() {
     let {id} = useParams()
