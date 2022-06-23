@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
-import {getTomeApi} from "../api/tomeApi";
+import {addTomeInCollection, delTomeInCollection, getTomeApi, getTomeInCollection} from "../api/tomeApi";
 import {addAvisApi} from "../api/avis";
 import AvisComponent from "../components/tome/avisComponent";
-import {sign} from "crypto";
 
 function Tome() {
     const  {id} = useParams()
@@ -12,6 +11,7 @@ function Tome() {
         avis:[{id:'',commantaire:'',signalee:'',user:{pseudonyme:''}}]}
     })
     const [signalee,setSignalee] = useState(true)
+    const [collection,setCollection] = useState(false)
     const [avis,setAvis] = useState({tomeId:id,commantaire:''})
     const handleChange = (event:any)=>{
         setAvis({...avis,commantaire: event.target.value})
@@ -30,7 +30,28 @@ function Tome() {
             data[0].avis.sort(function (a:any, b:any) {
                 return b.id - a.id;
             })
+            await getTomeCollection()
             setTome(data[0])
+        }
+    }
+    const getTomeCollection = async()=>{
+        if(id){
+            const data = await getTomeInCollection(id)
+            if(data[0]){
+                setCollection(true)
+            }
+        }
+    }
+    const addTome = async()=>{
+        if(id){
+            await addTomeInCollection(id)
+            setCollection(true)
+        }
+    }
+    const delTome = async()=>{
+        if(id){
+            await delTomeInCollection(id)
+            setCollection(false)
         }
     }
     useEffect(()=>{
@@ -39,7 +60,8 @@ function Tome() {
     return (
         <div className="text-white w-[100%]">
             <h1 className="text-5xl">{tome.edition.serie.nameSeries} - Tome n°{tome.numero}</h1>
-            <button className="w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Ajouter le tome !</button>
+            {collection ? <button onClick={delTome} className="w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Supprimer le tome !</button> :
+                <button onClick={addTome} className="w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Ajouter le tome !</button>}
             <div className="w-[100%] h-[50px] mt-10">
                 <h2 className="text-2xl">Série</h2>
                 <Link to={`/auteur/${tome.edition.serie.id}`}><div className="border-b border-gray-500 w-[100%] mt-3 h-[40px]">{tome.edition.serie.nameSeries}</div></Link>
