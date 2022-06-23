@@ -22,3 +22,17 @@ export async function updateEditionApi(edition: edition){
 
     return res.status
 }
+
+export async function noteEdition(id:number|string,note:number){
+    const url = `${url_api}/edition/${id}/add`
+    const res = await axios.post(url,{note:note},HEADER)
+
+    return res.status
+}
+
+export async function getNote(id:number|string){
+    const url = `${url_api}/edition/${id}/getNote`
+    const res = await axios.get(url,HEADER)
+
+    return res.data
+}

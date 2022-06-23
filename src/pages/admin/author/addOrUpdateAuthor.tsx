@@ -13,7 +13,6 @@ function AddOrUpdateAuthor() {
     const getAuthor = async () => {
         if (id) {
             const author = await getAuthorById(id)
-            console.log(author)
             setAuthor({id: author.id, nameAuteur: author.nameAuteur})
         }
     }

@@ -12,7 +12,6 @@ function UpdateTome() {
     const getTome = async()=>{
         if(id) {
             const data = await getTomeApi(id)
-            console.log(data[0])
             setTome({id:data[0].id,numero: data[0].numero,desc:data[0].desc,nbpage: data[0].nbpage,dateSortie: new Date(data[0].dateSortie),imageCouverture: data[0].imageCouverture,isbn: data[0].isbn,editionId: data[0].edition.id})
             setInfo({nomEdition: data[0].edition.nameEdition,nomSerie: data[0].edition.serie.nameSeries})
         }

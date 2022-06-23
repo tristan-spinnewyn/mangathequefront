@@ -26,7 +26,6 @@ function SerieUser() {
                 <h2 className="text-2xl">Editions</h2>
                 {serie.editions.map((value,index)=>{
                     const statut = optionsStatutEdition.filter(statut => statut.value.toString() == value.statut)
-                    console.log(statut)
                     return <Link key={index} to={`/edition/${value.id}`}>
                         <div className="border-b border-gray-500 w-[100%] h-[100px]">
                             <div>{serie.nameSeries} - {value.nameEdition}</div>

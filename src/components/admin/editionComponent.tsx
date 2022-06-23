@@ -10,7 +10,6 @@ function EditionComponent(props: lstEdition) {
         for(let i = 0; i< props.editions.length;i++){
             setEdition(prevState => [...prevState, {link:`/admin/edition/${props.editions[i].id}`,name:props.editions[i].nameEdition}])
         }
-        console.log(edition)
     },[props.editions])
     return (
         <div className="w-[90%]">

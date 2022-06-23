@@ -13,7 +13,7 @@ function AddOrUpdateEditeur() {
     const getEditeur = async () => {
         if (id) {
             const editeur = await getEditeurById(id)
-            console.log(editeur)
+
             setEditeur({id: editeur.id, nameEditeur: editeur.nameEditeur})
         }
     }

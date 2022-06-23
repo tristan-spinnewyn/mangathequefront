@@ -51,3 +51,9 @@ export interface tome{
     isbn:string,
     editionId: string|number,
 }
+
+export interface avis{
+    id?:string|number,
+    commantaire:string,
+    tomeId:string|number
+}

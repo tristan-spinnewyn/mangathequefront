@@ -9,7 +9,6 @@ function Auteurs() {
         if(id) {
             const data = await getAuthorById(id)
             setAuteur({id:data.id,nameAuteur: data.nameAuteur,series: data.series})
-            console.log(data.series)
         }
     }
     useEffect(()=>{

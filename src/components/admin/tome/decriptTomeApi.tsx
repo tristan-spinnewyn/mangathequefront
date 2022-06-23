@@ -12,7 +12,6 @@ function DecriptTomeApi(props: descriptApi) {
     let navigate = useNavigate()
     const getTomeApi = async()=>{
         const getData = await getTomeGoogle(props.uid)
-        console.log(props.uid)
         let imgUri = ''
         if(getData.volumeInfo.imageLinks){
             imgUri = getData.volumeInfo.imageLinks.thumbnail

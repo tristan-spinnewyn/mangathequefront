@@ -9,7 +9,6 @@ function Editeurs() {
         if(id) {
             const data = await getEditeurById(id)
             setEditeur({id:data.id,nameEditeur: data.nameEditeur,editions: data.editions})
-            console.log(editeur)
         }
     }
     useEffect(()=>{
