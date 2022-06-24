@@ -48,7 +48,7 @@ function DecriptTomeApi(props: descriptApi) {
             <form onSubmit={handleSubmit}>
                 <div className="flex w-[100%] mt-3 justify-center items-center">
                     <p className="w-[10%]">ISBN:</p>
-                    <Input divClass={divClass} inputClass={inputClass} type="text" label="ISBN" placeholder="ISBN" value={data.isbn} change={handleChange} name="ISBN"/>
+                    <Input divClass={divClass} inputClass={inputClass} type="text" label="ISBN" placeholder="ISBN" value={data.isbn} change={handleChange} name="isbn"/>
                 </div>
                 <div className="flex w-[100%] mt-3 justify-center items-center">
                     <p className="w-[10%]">Numéro:</p>

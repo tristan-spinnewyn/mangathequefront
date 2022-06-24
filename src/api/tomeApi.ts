@@ -64,3 +64,10 @@ export async function getTomeInCollection(id:number|string){
 
     return res.data
 }
+
+export async function getTomeUserApi(){
+    const url = `${url_api}/tome/collection`
+    const res = await axios.get(url,HEADER)
+
+    return res.data
+}
