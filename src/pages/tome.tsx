@@ -64,11 +64,11 @@ function Tome() {
                 <button onClick={addTome} className="w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Ajouter le tome !</button>}
             <div className="w-[100%] h-[50px] mt-10">
                 <h2 className="text-2xl">Série</h2>
-                <Link to={`/auteur/${tome.edition.serie.id}`}><div className="border-b border-gray-500 w-[100%] mt-3 h-[40px]">{tome.edition.serie.nameSeries}</div></Link>
+                <Link to={`/serie/${tome.edition.serie.id}`}><div className="border-b border-gray-500 w-[100%] mt-3 h-[40px]">{tome.edition.serie.nameSeries}</div></Link>
             </div>
             <div className="w-[100%] h-[50px] mb-10 mt-10">
                 <h2 className="text-2xl">Edition</h2>
-                <Link to={`/auteur/${tome.edition.id}`}><div className="border-b border-gray-500 w-[100%] mt-3 h-[40px]">{tome.edition.nameEdition}</div></Link>
+                <Link to={`/edition/${tome.edition.id}`}><div className="border-b border-gray-500 w-[100%] mt-3 h-[40px]">{tome.edition.nameEdition}</div></Link>
             </div>
             <div className="flex">
                 <div className="w-[25%] flex justify-end">
