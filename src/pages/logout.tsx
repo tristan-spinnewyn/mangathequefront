@@ -7,7 +7,6 @@ function Logout() {
     useEffect(() => {
         context.setConnected(false)
         logout()
-        console.log("disconnected")
         document.location.href = '/'
 
     }, []);

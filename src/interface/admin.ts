@@ -24,6 +24,7 @@ export interface AdminContentTable{
 export interface AdminElemTable{
     link: string,
     name: string,
+    buttonLabel:string,
 }
 
 export interface select{

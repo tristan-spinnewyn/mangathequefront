@@ -6,7 +6,7 @@ function MenuUl(props: ArrayMenuLi){
     return(
         <ul className="text-[#FFFFFF] flex flex-col text-2xl mb-[20px]">
             {props.lstMenuLi.map((data: MenuLiInterface, index : number) => {
-                return <MenuLiEl key={index} url={data.url} name={data.name}/>
+                return <MenuLiEl key={index} url={data.url} name={data.name} icon={data.icon} prefix={data.prefix}/>
             })}
         </ul>
     )

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import UpdateEdition from "../../components/admin/updateEdition";
-import {getEditionApi} from "../../api/editionApi";
-import TomeComponent from "../../components/admin/tomeComponent";
+import UpdateEdition from "../../../components/admin/updateEdition";
+import {getEditionApi} from "../../../api/editionApi";
+import TomeComponent from "../../../components/admin/tomeComponent";
 
 function Edition() {
     let {id} = useParams()

@@ -8,15 +8,36 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Logout from "./pages/logout";
 import Account from "./pages/account";
-import Author from "./pages/author/author";
-import AddOrUpdateAuthor from "./pages/author/addOrUpdateAuthor";
-import Editeur from "./pages/editeur/editeur";
-import AddOrUpdateEditeur from "./pages/editeur/addOrUpdateEditeur";
-import Serie from "./pages/serie/serie";
-import AddOrUpdateSerie from "./pages/serie/addOrUpdateSerie";
-import Edition from "./pages/edition/edition";
-import AddTome from "./pages/tome/addTome";
-import UpdateTome from "./pages/tome/updateTome";
+import Author from "./pages/admin/author/author";
+import AddOrUpdateAuthor from "./pages/admin/author/addOrUpdateAuthor";
+import Editeur from "./pages/admin/editeur/editeur";
+import AddOrUpdateEditeur from "./pages/admin/editeur/addOrUpdateEditeur";
+import Serie from "./pages/admin/serie/serie";
+import AddOrUpdateSerie from "./pages/admin/serie/addOrUpdateSerie";
+import Edition from "./pages/admin/edition/edition";
+import AddTome from "./pages/admin/tome/addTome";
+import UpdateTome from "./pages/admin/tome/updateTome";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {
+    faArrowRight,
+    faArrowRightFromBracket, faBook,
+    faCalendarDays,
+    faGear,
+    faList,
+    faMagnifyingGlass,
+    fas,
+    faUser
+} from "@fortawesome/free-solid-svg-icons";
+import Search from "./pages/search";
+import Auteurs from "./pages/auteurs";
+import Editeurs from "./pages/editeurs";
+import SerieUser from "./pages/serieUser";
+import EditionUser from "./pages/editionUser";
+import Tome from "./pages/tome";
+import Collection from "./pages/collection";
+import Planning from "./pages/planning";
+
+library.add(fas,faGear,faUser,faList,faCalendarDays,faMagnifyingGlass,faArrowRightFromBracket,faBook,faArrowRight)
 
 export const AuthContext = React.createContext({
     isConnected: false,
@@ -38,11 +59,16 @@ function App() {
                     <Header/>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/planning"/>
-                        <Route path="/search"/>
-                        <Route path="/collection"/>
+                        <Route path="/planning" element={<Planning/>}/>
+                        <Route path="/search" element={<Search/>}/>
+                        <Route path="/collection" element={<Collection/>}/>
                         <Route path="/account" element={<Account/>}/>
                         <Route path="/logout" element={<Logout />}/>
+                        <Route path="/auteur/:id" element={<Auteurs/>}/>
+                        <Route path="/editeur/:id" element={<Editeurs/>}/>
+                        <Route path="/serie/:id" element={<SerieUser/>}/>
+                        <Route path="/edition/:id" element={<EditionUser/>}/>
+                        <Route path="/tome/:id" element={<Tome/>}/>
                         <Route path="/admin/auteur/:id" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur/add" element={<AddOrUpdateAuthor />}/>
                         <Route path="/admin/auteur" element={<Author/>}/>

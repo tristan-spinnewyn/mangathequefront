@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {formHandleChange} from "../../services/formServices";
-import Input from "../../components/form/input";
-import {addEditeur, getEditeurById, updateEditeur} from "../../api/editorApi";
+import {formHandleChange} from "../../../services/formServices";
+import Input from "../../../components/form/input";
+import {addEditeur, getEditeurById, updateEditeur} from "../../../api/editorApi";
 
 function AddOrUpdateEditeur() {
     const [editeur, setEditeur] = useState({id: null, nameEditeur: ''})
@@ -13,7 +13,7 @@ function AddOrUpdateEditeur() {
     const getEditeur = async () => {
         if (id) {
             const editeur = await getEditeurById(id)
-            console.log(editeur)
+
             setEditeur({id: editeur.id, nameEditeur: editeur.nameEditeur})
         }
     }

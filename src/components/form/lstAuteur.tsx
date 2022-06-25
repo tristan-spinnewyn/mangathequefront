@@ -15,7 +15,6 @@ function LstAuteur(props: select) {
     }
     useEffect(()=>{
         getAuteur()
-        console.log(props.value)
         if(props.value.auteurId !== ''){
             const auteur = auteurs.filter(auteur => auteur.value === props.value.auteurId)
             setSelectedAuteur(auteur[0])

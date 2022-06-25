@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {addATome, getTomeApi, updateTomeApi} from "../../api/tomeApi";
-import Input from "../../components/form/input";
+import {addATome, getTomeApi, updateTomeApi} from "../../../api/tomeApi";
+import Input from "../../../components/form/input";
 import DatePicker from "react-datepicker";
-import {formHandleChange} from "../../services/formServices";
+import {formHandleChange} from "../../../services/formServices";
 
 function UpdateTome() {
     let {id} = useParams()
@@ -12,7 +12,6 @@ function UpdateTome() {
     const getTome = async()=>{
         if(id) {
             const data = await getTomeApi(id)
-            console.log(data[0])
             setTome({id:data[0].id,numero: data[0].numero,desc:data[0].desc,nbpage: data[0].nbpage,dateSortie: new Date(data[0].dateSortie),imageCouverture: data[0].imageCouverture,isbn: data[0].isbn,editionId: data[0].edition.id})
             setInfo({nomEdition: data[0].edition.nameEdition,nomSerie: data[0].edition.serie.nameSeries})
         }

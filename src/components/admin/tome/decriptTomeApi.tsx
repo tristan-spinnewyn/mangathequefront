@@ -12,7 +12,6 @@ function DecriptTomeApi(props: descriptApi) {
     let navigate = useNavigate()
     const getTomeApi = async()=>{
         const getData = await getTomeGoogle(props.uid)
-        console.log(props.uid)
         let imgUri = ''
         if(getData.volumeInfo.imageLinks){
             imgUri = getData.volumeInfo.imageLinks.thumbnail
@@ -49,7 +48,7 @@ function DecriptTomeApi(props: descriptApi) {
             <form onSubmit={handleSubmit}>
                 <div className="flex w-[100%] mt-3 justify-center items-center">
                     <p className="w-[10%]">ISBN:</p>
-                    <Input divClass={divClass} inputClass={inputClass} type="text" label="ISBN" placeholder="ISBN" value={data.isbn} change={handleChange} name="ISBN"/>
+                    <Input divClass={divClass} inputClass={inputClass} type="text" label="ISBN" placeholder="ISBN" value={data.isbn} change={handleChange} name="isbn"/>
                 </div>
                 <div className="flex w-[100%] mt-3 justify-center items-center">
                     <p className="w-[10%]">Numéro:</p>
