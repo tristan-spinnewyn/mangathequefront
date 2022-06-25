@@ -35,6 +35,7 @@ import SerieUser from "./pages/serieUser";
 import EditionUser from "./pages/editionUser";
 import Tome from "./pages/tome";
 import Collection from "./pages/collection";
+import Planning from "./pages/planning";
 
 library.add(fas,faGear,faUser,faList,faCalendarDays,faMagnifyingGlass,faArrowRightFromBracket,faBook,faArrowRight)
 
@@ -58,7 +59,7 @@ function App() {
                     <Header/>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/planning"/>
+                        <Route path="/planning" element={<Planning/>}/>
                         <Route path="/search" element={<Search/>}/>
                         <Route path="/collection" element={<Collection/>}/>
                         <Route path="/account" element={<Account/>}/>

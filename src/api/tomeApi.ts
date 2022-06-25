@@ -71,3 +71,10 @@ export async function getTomeUserApi(){
 
     return res.data
 }
+
+export async function getNextTome(){
+    const url = `${url_api}/tome/next`
+    const res = await axios.get(url,HEADER)
+
+    return res.data
+}
