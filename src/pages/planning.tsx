@@ -4,7 +4,7 @@ import dateFormat, { masks } from 'dateformat';
 import {Link} from "react-router-dom";
 
 function Planning() {
-    const [date,setDate] = useState<any[]>([{date:'',tomes:[{id:'',numero:'',nameEdition:'',nameSeries:''}]}])
+    const [date,setDate] = useState<any[]>([{date:new Date(),tomes:[{id:'',numero:'',nameEdition:'',nameSeries:''}]}])
     const get = async ()=>{
         const data = await getNextTome()
         const dateArray:any[] = []
