@@ -3,6 +3,7 @@ import {Link, useParams} from "react-router-dom";
 import {addTomeInCollection, delTomeInCollection, getTomeApi, getTomeInCollection} from "../api/tomeApi";
 import {addAvisApi} from "../api/avis";
 import AvisComponent from "../components/tome/avisComponent";
+import {getToken} from "../services/authService";
 
 function Tome() {
     const  {id} = useParams()
@@ -18,7 +19,7 @@ function Tome() {
     }
     const addAvis = async(event: React.SyntheticEvent)=>{
         event.preventDefault()
-        if(id) {
+        if(id && getToken()) {
             await addAvisApi(avis)
             await getTome()
             setAvis({...avis,commantaire: ''})
@@ -30,7 +31,9 @@ function Tome() {
             data[0].avis.sort(function (a:any, b:any) {
                 return b.id - a.id;
             })
-            await getTomeCollection()
+            if(getToken()) {
+                await getTomeCollection()
+            }
             setTome(data[0])
         }
     }
@@ -43,13 +46,13 @@ function Tome() {
         }
     }
     const addTome = async()=>{
-        if(id){
+        if(id && getToken()){
             await addTomeInCollection(id)
             setCollection(true)
         }
     }
     const delTome = async()=>{
-        if(id){
+        if(id && getToken()){
             await delTomeInCollection(id)
             setCollection(false)
         }
@@ -59,9 +62,9 @@ function Tome() {
     },[signalee])
     return (
         <div className="text-white w-[100%]">
-            <h1 className="text-5xl">{tome.edition.serie.nameSeries} - Tome n°{tome.numero}</h1>
-            {collection ? <button onClick={delTome} className="w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Supprimer le tome !</button> :
-                <button onClick={addTome} className="w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Ajouter le tome !</button>}
+            <h1 className="text-3xl">{tome.edition.serie.nameSeries} - Tome n°{tome.numero}</h1>
+            {collection ? <button onClick={delTome} className="sm:w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Supprimer le tome !</button> :
+                <button onClick={addTome} className="sm:w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Ajouter le tome !</button>}
             <div className="w-[100%] h-[50px] mt-10">
                 <h2 className="text-2xl">Série</h2>
                 <Link to={`/serie/${tome.edition.serie.id}`}><div className="border-b border-gray-500 w-[100%] mt-3 h-[40px]">{tome.edition.serie.nameSeries}</div></Link>
@@ -70,24 +73,24 @@ function Tome() {
                 <h2 className="text-2xl">Edition</h2>
                 <Link to={`/edition/${tome.edition.id}`}><div className="border-b border-gray-500 w-[100%] mt-3 h-[40px]">{tome.edition.nameEdition}</div></Link>
             </div>
-            <div className="flex">
-                <div className="w-[25%] flex justify-end">
+            <div className="flex w-[100%]">
+                <div className="w-[25%]">
                     <div>
-                    <img src={tome.imageCouverture}/>
+                        <img src={tome.imageCouverture}/>
                     </div>
                 </div>
                 <div className="w-[75%]">
-                    <p className="m-2">ISBN: {tome.isbn}</p>
-                    <p className="m-2">Synopsis: {tome.desc}</p>
-                    <p className="m-2">Date de sortie: {new Date(tome.dateSortie).toLocaleDateString()}</p>
-                    <p className="m-2">Nombre de page: {tome.nbpage}</p>
+                    <p className="p-2">ISBN: {tome.isbn}</p>
+                    <p className="p-2">Synopsis: {tome.desc}</p>
+                    <p className="p-2">Date de sortie: {new Date(tome.dateSortie).toLocaleDateString()}</p>
+                    <p className="p-2">Nombre de page: {tome.nbpage}</p>
                 </div>
             </div>
             <div className="w-[100%]  pl-10 pr-10">
                 <h2 className="w-[100%] text-center text-2xl">Avis</h2>
                 <form onSubmit={addAvis} className="pb-10">
                     <textarea className="w-[100%] h-[100px] text-[#000000]" value={avis.commantaire} onChange={handleChange}></textarea>
-                    <button className="w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Valider</button>
+                    <button className="sm:w-[300px] h-[40px] bg-[#db4a2b] rounded-xl">Valider</button>
                 </form>
                 <div>
                     {tome.avis ? tome.avis.map((data:any,index:any)=>{
