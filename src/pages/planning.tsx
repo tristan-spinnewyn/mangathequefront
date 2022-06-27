@@ -35,7 +35,7 @@ function Planning() {
                         <div className="flex w-[100%]">
                             {value.tomes.map((tome:any,indexTome:any)=>{
                                 return(
-                                    <Link to={`/tome/${tome.id}`} className="w-[50%] sm:w-[14%] p-3">
+                                    <Link key={indexTome} to={`/tome/${tome.id}`} className="w-[50%] sm:w-[14%] p-3">
                                         <img src={tome.imageCouverture} />
                                         <p>{tome.nameSeries} - {tome.nameEdition}</p>
                                         <p>Tome n°{tome.numero}</p>
