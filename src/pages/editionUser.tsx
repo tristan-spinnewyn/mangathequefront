@@ -4,6 +4,7 @@ import {getEditionApi, getNote, noteEdition} from "../api/editionApi";
 import Tome from "../components/home/tome";
 import {getConnectedUser} from "../api/userApi";
 import StarRatings from 'react-star-ratings';
+import {getToken} from "../services/authService";
 
 function EditionUser() {
     const {id} = useParams()
@@ -20,9 +21,11 @@ function EditionUser() {
                 serie:{id:data[0].serie.id,nameSeries: data[0].serie.nameSeries},
                 tomes: tomes
             })
-            const note = await getNote(id)
-            if(note[0] !== null){
-                setRating(note[0].note)
+            if(getToken()) {
+                const note = await getNote(id)
+                if (note[0] !== null) {
+                    setRating(note[0].note)
+                }
             }
         }
     }
@@ -32,7 +35,7 @@ function EditionUser() {
     const [rating, setRating] = useState(0) // initial rating value
     const handleRating = async (rate: number) => {
         setRating(rate)
-        if(id) {
+        if(id && getToken()) {
             await noteEdition(id, rate)
         }
     }
